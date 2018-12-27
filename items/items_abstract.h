@@ -21,7 +21,7 @@ protected:
 public:
 
     virtual ~item() = default;
-    virtual int gear_up() = default;
+    virtual int gear_up() = 0;
 
     int get_rank() { return this->rank; }
     int get_gear() { return this->gear; }
