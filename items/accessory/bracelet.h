@@ -22,6 +22,8 @@ public:
     ~bracelet() override = default;
 
     int gear_up() override;
+    int get_mana() { return this->mana; }
+    double get_attack_bonus() { return this->attack_bonus; }
 
     friend std::ostream &operator << (std::ostream &stream, const bracelet &out);
 

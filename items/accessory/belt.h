@@ -22,6 +22,8 @@ public:
     ~belt() override = default;
 
     int gear_up() override;
+    int get_armor() { return this->armor; }
+    int get_resist() { return this->resist; }
 
     friend std::ostream &operator << (std::ostream &stream, const belt &out);
 

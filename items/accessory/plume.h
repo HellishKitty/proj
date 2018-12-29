@@ -23,6 +23,9 @@ public:
     ~plume() override = default;
 
     int gear_up() override;
+    int get_attack() { return this->attack; }
+    int get_health() { return this->health; }
+    int get_spell_power() { return this->spell_power; }
 
     friend std::ostream &operator << (std::ostream &stream, const plume &out);
 
