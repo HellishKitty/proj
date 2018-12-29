@@ -66,7 +66,7 @@ std::ostream &operator << (std::ostream &stream, const necklace &out) {
     stream << std::endl;
 
     stream << "spell power bonus: " << 100 * out.spell_power_bonus << "%" << std::endl;
-    stream << "             mane: " << out.mana << std::endl;
+    stream << "             mana: " << out.mana << std::endl;
 
     return stream;
 }
