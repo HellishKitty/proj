@@ -39,6 +39,14 @@ bracelet::bracelet(const bracelet &orig)
 }
 
 
+bracelet::~bracelet() {
+
+    std::cout << this->name << " destroyed" << std::endl;
+
+}
+
+
+// methods
 int bracelet::gear_up() {
 
     if (this->gear >= MAX_GEAR)
@@ -56,6 +64,8 @@ int bracelet::gear_up() {
 }
 
 
+
+// friends
 std::ostream &operator << (std::ostream &stream, const bracelet &out) {
 
     stream << rank_map[out.rank] << " " << out.name;

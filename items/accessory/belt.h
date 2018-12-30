@@ -19,7 +19,7 @@ public:
     belt(const std::string &name, const int &rank, const int &gear,
             const int &armor, const int &resist);
     belt(const belt &orig);
-    ~belt() override = default;
+    ~belt() override;
 
     int gear_up() override;
     int get_armor() { return this->armor; }

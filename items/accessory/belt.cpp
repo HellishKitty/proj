@@ -36,6 +36,13 @@ belt::belt(const belt &orig) : belt(orig.name, orig.rank, orig.gear, orig.armor,
 }
 
 
+belt::~belt() {
+
+    std::cout << this->name << " destroyed" << std::endl;
+
+}
+
+
 // methods
 int belt::gear_up() {
 
