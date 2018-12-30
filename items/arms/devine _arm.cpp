@@ -66,7 +66,7 @@ int devine_arm::gear_up() {
         this->attack_speed_bonus += GEAR_ATTACK_SPEED * this->rank;
 
         this->spell_power += GEAR_SPELL_POWER * this->rank;
-        this->spell_accuracy += GEAR_ACCURACY *  this->rank;
+        this->spell_accuracy += GEAR_SPELL_ACCURACY *  this->rank;
         this->cast_speed_bonus += GEAR_CAST_SPEED * this->rank;
 
         this->gear ++;

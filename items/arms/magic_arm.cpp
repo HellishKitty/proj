@@ -59,9 +59,9 @@ int magic_arm::gear_up() {
         std::cout << this->name << " is fully geared!" << std::endl;
     else {
 
-        this->spell_power += 15 * this->rank;
-        this->spell_accuracy += 10 *  this->rank;
-        this->cast_speed_bonus += 0.01 * this->rank;
+        this->spell_power += GEAR_SPELL_POWER * this->rank;
+        this->spell_accuracy += GEAR_SPELL_ACCURACY *  this->rank;
+        this->cast_speed_bonus += GEAR_CAST_SPEED * this->rank;
         this->gear ++;
 
         std::cout << this->name << " geared to +" << this->gear << std::endl;

@@ -58,9 +58,9 @@ int steel_arm::gear_up() {
         std::cout << this->name << " is fully geared!" << std::endl;
     else {
 
-        this->attack += 5 * this->rank;
-        this->accuracy += 10 *  this->rank;
-        this->attack_speed_bonus += 0.01 * this->rank;
+        this->attack += GEAR_ATTACK * this->rank;
+        this->accuracy += GEAR_ACCURACY *  this->rank;
+        this->attack_speed_bonus += GEAR_ATTACK_SPEED * this->rank;
         this->gear ++;
 
         std::cout << this->name << " geared to +" << this->gear << std::endl;
