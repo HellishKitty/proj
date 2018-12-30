@@ -20,6 +20,7 @@ public:
     magic_arm(const std::string &name, const int &rank, const int &gear, const int &attack_range,
                  const int &spell_power, const int &spell_accuracy, const double &cast_speed_bonus);
     magic_arm(const magic_arm &orig);
+    ~magic_arm() override;
 
     int gear_up() override;
     int get_spell_power() { return this->spell_power; }

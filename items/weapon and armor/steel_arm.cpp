@@ -46,7 +46,8 @@ steel_arm::steel_arm(const steel_arm &orig)
 
 steel_arm::~steel_arm() {
 
-    std::cout << this->name << " destroyed" << std::endl;
+    if (this->type == "steel arm")
+        std::cout << this->name << " destroyed" << std::endl;
 
 }
 

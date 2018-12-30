@@ -6,7 +6,7 @@
 #include "arm_abstract.h"
 
 
-class steel_arm : public arm {
+class steel_arm : virtual public arm {
 
 protected:
 
@@ -23,6 +23,9 @@ public:
     ~steel_arm() override;
 
     int gear_up() override;
+    int get_attack() { return this->attack; }
+    int get_accuracy() { return this->accuracy; }
+    double get_attack_speed_bonus() { return this->attack_speed_bonus; }
 
     friend std::ostream &operator << (std::ostream &stream, const steel_arm & out);
 
