@@ -1,9 +1,9 @@
 #include <string>
 #include <iostream>
-#include "magic_weapon.h"
+#include "magic_arm.h"
 
 
-magic_weapon::magic_weapon() {
+magic_arm::magic_arm() {
 
     this->spell_power = 0;
     this->spell_accuracy = 0;
@@ -13,13 +13,13 @@ magic_weapon::magic_weapon() {
 
     this->rank = 0;
     this->gear = 0;
-    this->type = "magic weapon";
+    this->type = "magic arm";
     this->name = "null";
 
 }
 
 
-magic_weapon::magic_weapon(const std::string &name, const int &rank, const int &gear, const int &attack_range,
+magic_arm::magic_arm(const std::string &name, const int &rank, const int &gear, const int &attack_range,
         const int &spell_power, const int &spell_accuracy, const double &cast_speed_bonus) {
 
     this->spell_power = spell_power;
@@ -31,21 +31,21 @@ magic_weapon::magic_weapon(const std::string &name, const int &rank, const int &
     this->rank = rank;
     this->gear = gear;
     this->name = name;
-    this->type = "magic weapon";
+    this->type = "magic arm";
 
 }
 
 
-magic_weapon::magic_weapon(const magic_weapon &orig)
-: magic_weapon(orig.name, orig.rank, orig.gear,  orig.attack_range, orig.spell_power, orig.spell_accuracy, orig.cast_speed_bonus){
+magic_arm::magic_arm(const magic_arm &orig)
+: magic_arm(orig.name, orig.rank, orig.gear,  orig.attack_range, orig.spell_power, orig.spell_accuracy, orig.cast_speed_bonus){
 
-    this->type = "magic weapon";
+    this->type = "magic arm";
 
 }
 
 
 // methods
-int magic_weapon::gear_up() {
+int magic_arm::gear_up() {
 
     if (this->gear >= MAX_GEAR)
         std::cout << this->name << " is fully geared!" << std::endl;
@@ -64,7 +64,7 @@ int magic_weapon::gear_up() {
 
 
 // friends
-std::ostream & operator << (std::ostream & stream, const magic_weapon & out) {
+std::ostream & operator << (std::ostream & stream, const magic_arm & out) {
 
     stream << rank_map[out.rank] << " " << out.name;
     if (out.gear != 0)
