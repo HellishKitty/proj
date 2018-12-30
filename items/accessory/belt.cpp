@@ -50,8 +50,8 @@ int belt::gear_up() {
         std::cout << this->name << " is fully geared!" << std::endl;
     else {
 
-        this->armor += 4 * this->rank;
-        this->resist += 12 * this->rank;
+        this->armor += GEAR_ARMOR * this->rank;
+        this->resist += GEAR_RESIST * this->rank;
         this->gear ++;
 
         std::cout << this->name << " geared to +" << this->gear;
@@ -69,7 +69,7 @@ std::ostream &operator << (std::ostream &stream, const belt &out) {
         stream << " +" << out.gear;
     stream << std::endl;
 
-    stream << " armor: " << out.armor << std::endl;
+    stream << " outfit: " << out.armor << std::endl;
     stream << "resist: " << out.resist << std::endl;
 
     return stream;

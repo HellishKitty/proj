@@ -13,7 +13,7 @@ steel_arm::steel_arm() {
 
     this->rank = 0;
     this->gear = 0;
-    this->type = "steel arm";
+    this->type = "steel arms";
     this->name = "null";
 
 }
@@ -31,7 +31,7 @@ steel_arm::steel_arm(const std::string &name, const int &rank, const int &gear, 
     this->rank = rank;
     this->gear = gear;
     this->name = name;
-    this->type = "steel arm";
+    this->type = "steel arms";
 
 }
 
@@ -39,14 +39,14 @@ steel_arm::steel_arm(const std::string &name, const int &rank, const int &gear, 
 steel_arm::steel_arm(const steel_arm &orig)
 : steel_arm(orig.name, orig.rank, orig.gear, orig.attack_range, orig.attack, orig.accuracy, orig.attack_speed_bonus) {
 
-    this->type = "steel arm";
+    this->type = "steel arms";
 
 }
 
 
 steel_arm::~steel_arm() {
 
-    if (this->type == "steel arm")
+    if (this->type == "steel arms")
         std::cout << this->name << " destroyed" << std::endl;
 
 }

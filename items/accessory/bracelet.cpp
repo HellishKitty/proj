@@ -53,8 +53,8 @@ int bracelet::gear_up() {
         std::cout << this->name << " is fully geared!" << std::endl;
     else {
 
-        this->attack_bonus += this->rank * 0.01;
-        this->mana += 15 * this->rank;
+        this->attack_bonus += GEAR_ATTACK_BONUS * 0.01;
+        this->mana += GEAR_MANA * this->rank;
         this->gear ++;
 
         std::cout << this->name << " geared to +" << this->gear << std::endl;

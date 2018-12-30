@@ -5,6 +5,18 @@
 #include <string>
 #include <ostream>
 #define MAX_GEAR 10
+#define GEAR_ATTACK 5
+#define GEAR_SPELL_POWER 15
+#define GEAR_ACCURACY 10
+#define GEAR_SPELL_ACCURACY 15
+#define GEAR_ARMOR 4
+#define GEAR_RESIST 12
+#define GEAR_HEALTH 20
+#define GEAR_MANA 15
+#define GEAR_ATTACK_BONUS 0.01
+#define GEAR_SPELL_BONUS 0.01
+#define GEAR_ATTACK_SPEED 0.01
+#define GEAR_CAST_SPEED 0.01
 
 
 extern std::map <int, std::string>rank_map;

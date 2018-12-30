@@ -53,8 +53,8 @@ int necklace::gear_up() {
         std::cout << this->name << " is fully geared!" << std::endl;
     else {
 
-        this->spell_power_bonus += this->rank * 0.01;
-        this->mana += 15 * this->rank;
+        this->spell_power_bonus += GEAR_SPELL_BONUS * this->rank;
+        this->mana += GEAR_MANA * this->rank;
         this->gear ++;
 
         std::cout << this->name << " geared to +" << this->gear << std::endl;

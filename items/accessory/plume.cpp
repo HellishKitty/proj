@@ -54,10 +54,10 @@ int plume::gear_up() {
         std::cout << this->name << " is fully geared!" << std::endl;
     else {
 
-        this->attack += 5 * this->rank;
-        this->spell_power += 15 * this->rank;
-        this->health += 20 * this->rank;
-        this->gear += 1;
+        this->attack += GEAR_ATTACK * this->rank;
+        this->spell_power += GEAR_SPELL_POWER * this->rank;
+        this->health += GEAR_HEALTH * this->rank;
+        this->gear ++;
 
         std::cout << this->name << " geared to +" << this->gear << std::endl;
     }

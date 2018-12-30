@@ -16,7 +16,7 @@ devine_arm::devine_arm() {
     this->rank = 0;
     this->gear = 0;
     this->name = "null";
-    this->type = "devine arm";
+    this->type = "devine arms";
 
 }
 
@@ -37,7 +37,7 @@ devine_arm::devine_arm(const std::string &name, const int &rank, const int &gear
     this->rank = rank;
     this->gear = gear;
     this->name = name;
-    this->type = "devine arm";
+    this->type = "devine arms";
 
 }
 
@@ -61,13 +61,13 @@ int devine_arm::gear_up() {
         std::cout << this->name << " is fully geared!" << std::endl;
     else {
 
-        this->attack += 5 * this->rank;
-        this->accuracy += 10 *  this->rank;
-        this->attack_speed_bonus += 0.01 * this->rank;
+        this->attack += GEAR_ATTACK * this->rank;
+        this->accuracy += GEAR_ACCURACY *  this->rank;
+        this->attack_speed_bonus += GEAR_ATTACK_SPEED * this->rank;
 
-        this->spell_power += 15 * this->rank;
-        this->spell_accuracy += 10 *  this->rank;
-        this->cast_speed_bonus += 0.01 * this->rank;
+        this->spell_power += GEAR_SPELL_POWER * this->rank;
+        this->spell_accuracy += GEAR_ACCURACY *  this->rank;
+        this->cast_speed_bonus += GEAR_CAST_SPEED * this->rank;
 
         this->gear ++;
 
