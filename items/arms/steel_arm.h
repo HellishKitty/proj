@@ -20,7 +20,7 @@ public:
     steel_arm(const std::string &name, const int &rank, const int &gera, const int &attack_range,
             const int &attack, const int &accuracy, const double &attack_speed_bonus);
     steel_arm(const steel_arm &orig);
-    ~steel_arm() override;
+    ~steel_arm() override = default;
 
     int gear_up() override;
     int get_attack() { return this->attack; }

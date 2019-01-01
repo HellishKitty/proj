@@ -40,13 +40,6 @@ plume::plume(const plume &orig)
 }
 
 
-plume::~plume() {
-
-    std::cout << this->name << " destroyed" << std::endl;
-
-}
-
-
 // methods
 int plume::gear_up() {
 

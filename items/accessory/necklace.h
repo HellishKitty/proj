@@ -19,7 +19,7 @@ public:
     necklace(const std::string &name, const int &rank, const int &gear,
             const double &spell_power_bonus, const int &mana);
     necklace(const necklace &orig);
-    ~necklace() override;
+    ~necklace() override = default;
 
     int gear_up() override;
     int get_mana() { return this->mana; }

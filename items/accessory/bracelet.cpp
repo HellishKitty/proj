@@ -39,13 +39,6 @@ bracelet::bracelet(const bracelet &orig)
 }
 
 
-bracelet::~bracelet() {
-
-    std::cout << this->name << " destroyed" << std::endl;
-
-}
-
-
 // methods
 int bracelet::gear_up() {
 

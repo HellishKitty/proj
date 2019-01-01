@@ -19,7 +19,7 @@ public:
     bracelet(const std::string &name, const int &rank, const int &gear,
             const double &attack_bonus, const int &mana);
     bracelet(const bracelet &orig);
-    ~bracelet() override;
+    ~bracelet() override = default;
 
     int gear_up() override;
     int get_mana() { return this->mana; }

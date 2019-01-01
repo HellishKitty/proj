@@ -44,14 +44,6 @@ steel_arm::steel_arm(const steel_arm &orig)
 }
 
 
-steel_arm::~steel_arm() {
-
-    if (this->type == "steel arms")
-        std::cout << this->name << " destroyed" << std::endl;
-
-}
-
-
 int steel_arm::gear_up() {
 
     if (this->gear >= MAX_GEAR)

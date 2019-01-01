@@ -47,13 +47,6 @@ devine_arm::devine_arm(const devine_arm &orig)
 orig.spell_power, orig.spell_accuracy, orig.cast_speed_bonus) { }
 
 
-devine_arm::~devine_arm() {
-
-    std::cout << this->name << " destroyed" << std::endl;
-
-}
-
-
 // methods
 int devine_arm::gear_up() {
 

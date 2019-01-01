@@ -39,13 +39,6 @@ outfit::outfit(const outfit &orig)
 : outfit(orig.name, orig.rank, orig.gear, orig.armor, orig.resist, orig.health, orig.evasion, orig.dispelling) { }
 
 
-outfit::~outfit() {
-
-    std::cout << this->name << " destroyed" << std::endl;
-
-}
-
-
 // methods
 int outfit::gear_up() {
 

@@ -22,7 +22,7 @@ public:
     outfit(const std::string &name, const int &rank, const int &gear,
             const int &armor, const int &resist, const int &health, const int &evasion, const int &dispelling);
     outfit(const outfit &orig);
-    ~outfit() override;
+    ~outfit() override = default;
 
     int gear_up() override;
     int get_armor() { return this->armor; }

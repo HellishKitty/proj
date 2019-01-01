@@ -39,13 +39,6 @@ necklace::necklace(const necklace &orig)
 }
 
 
-necklace::~necklace() {
-
-    std::cout << this->name << " destroyed" << std::endl;
-
-}
-
-
 // methods
 int necklace::gear_up() {
 

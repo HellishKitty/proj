@@ -44,14 +44,6 @@ magic_arm::magic_arm(const magic_arm &orig)
 }
 
 
-magic_arm::~magic_arm() {
-
-    if (this->type == "magic arm")
-        std::cout << this->name << " destroyed" << std::endl;
-
-}
-
-
 // methods
 int magic_arm::gear_up() {
 

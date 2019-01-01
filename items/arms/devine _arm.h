@@ -16,7 +16,7 @@ public:
                 const int &attack, const int &accuracy, const double &attack_speed_bonus,
                 const int &spell_power, const int &spell_accuracy, const double &cast_speed_bonus);
     devine_arm(const devine_arm &orig);
-    ~devine_arm() override;
+    ~devine_arm() override = default;
 
     int gear_up() override;
 

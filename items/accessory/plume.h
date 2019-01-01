@@ -20,7 +20,7 @@ public:
     plume(const std::string &name, const int &rank, const int &gear,
     const int &health, const int &attack, const int &spell_power);
     plume(const plume &orig);
-    ~plume() override;
+    ~plume() override = default;
 
     int gear_up() override;
     int get_attack() { return this->attack; }
