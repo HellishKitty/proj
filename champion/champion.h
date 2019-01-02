@@ -2,7 +2,17 @@
 #define _CHAMPION_H
 
 #include <string>
+#include <memory>
 #include <ostream>
+#include "champ_stats.h"
+#include "../items/accessory/belt.h"
+#include "../items/accessory/bracelet.h"
+#include "../items/accessory/plume.h"
+#include "../items/armor/outfit.h"
+#include "../items/arms/steel_arm.h"
+#include "../items/arms/magic_arm.h"
+#include "../items/arms/devine _arm.h"
+#include "../items/accessory/necklace.h"
 
 #define DEFAULT_ATTACK_RANGE 1
 #define DEFAULT_ATTACK_SPEED 1
@@ -21,45 +31,42 @@
 typedef class champion {
 
 protected:
-// stats
-    int attack_range;
-    int mana;
 
-    int attack;
-    int accuracy;
-    int attack_speed;
+    std::string name;
 
-    int spell_power;
-    int spell_accuracy;
-    int cast_speed;
-
-    int health;
-    int armor;
-    int resist;
-    int evasion;
-    int dispelling;
-// TODO: items
+// items
+    std::shared_ptr<arm> _arm;
+    std::shared_ptr<outfit> _outfit;
+    std::shared_ptr<belt> _belt;
+    std::shared_ptr<bracelet> _bracelet;
+    std::shared_ptr<necklace> _necklace;
+    std::shared_ptr<plume> _plume;
 
 public:
+    stats _stats;
 
-    void set_defaults();
-    // getters
-    int get_attack_range() { return this->attack_range; }
-    int get_mana() { return this->mana; }
+    champion(); // default constructor
+    explicit champion(const std::string &name);
+    champion(const std::string &name, const stats & _stats, std::shared_ptr<arm> _arm, std::shared_ptr<outfit> _outfit,
+            std::shared_ptr<belt> _belt, std::shared_ptr<bracelet> _bracelet,std::shared_ptr<necklace> _necklace, std::shared_ptr<plume> _plume);
+    champion(const std::string &name, const stats & _stats, arm *_arm, outfit *_outfit,
+             belt *_belt, bracelet *_bracelet, necklace *_necklace, plume *_plume);
+    champion(const champion &orig);
+    ~champion();
 
-    int get_attack() { return this->attack; }
-    int get_accuracy() { return this->accuracy; }
-    int get_attack_speed() { return this->attack_speed; }
+    // methods
+    void set_nullptr();
 
-    int get_spell_power() { return this->spell_power; }
-    int get_spell_accuracy() { return this->spell_accuracy; }
-    int get_cast_speed() { return this->cast_speed; }
+    int count_mana();
+    int count_attack();
+    int count_spell_power();
+    int count_health();
+    int count_armor();
+    int count_resist();
 
-    int get_health() { return this->health; }
-    int get_armor() { return this->armor; }
-    int get_resist() { return this->resist; }
-    int get_evasion() { return this->evasion; }
-    int get_dispelling() { return this->dispelling; }
+
+    //friends
+    friend std::ostream &operator << (std::ostream &stream, const champion &out);
 
 } champ;
 

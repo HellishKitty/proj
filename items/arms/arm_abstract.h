@@ -18,6 +18,8 @@ public:
 
     int gear_up() override { return 0; }
     int get_attack_range() { return this->attack_range; }
+    virtual int get_attack() { return 0; }
+    virtual int get_spell_power() { return 0; }
 
     friend std::ostream &operator << (std::ostream &stream, const arm &out) {
         return stream;

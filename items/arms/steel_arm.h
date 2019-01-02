@@ -23,7 +23,7 @@ public:
     ~steel_arm() override = default;
 
     int gear_up() override;
-    int get_attack() { return this->attack; }
+    int get_attack() override { return this->attack; }
     int get_accuracy() { return this->accuracy; }
     double get_attack_speed_bonus() { return this->attack_speed_bonus; }
 

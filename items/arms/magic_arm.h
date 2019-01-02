@@ -23,7 +23,7 @@ public:
     ~magic_arm() override = default;
 
     int gear_up() override;
-    int get_spell_power() { return this->spell_power; }
+    int get_spell_power() override { return this->spell_power; }
     int get_spell_accuracy() { return this->spell_accuracy; }
     double get_cast_speed_bonus() { return this->cast_speed_bonus; }
 
