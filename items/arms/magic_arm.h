@@ -24,9 +24,10 @@ public:
 
     int gear_up() override;
     int get_spell_power() override { return this->spell_power; }
-    int get_spell_accuracy() { return this->spell_accuracy; }
-    double get_cast_speed_bonus() { return this->cast_speed_bonus; }
+    int get_spell_accuracy() override { return this->spell_accuracy; }
+    double get_cast_speed_bonus() override { return this->cast_speed_bonus; }
 
+    void print() override;
     friend std::ostream & operator << (std::ostream & stream, const magic_arm & out);
 
 } magic;

@@ -63,6 +63,21 @@ int magic_arm::gear_up() {
 }
 
 
+void magic_arm::print() {
+
+    std::cout << rank_map[this->rank] << " " << this->name;
+    if (this->gear != 0)
+        std::cout << " +" << this->gear;
+    std::cout << std::endl;
+
+    std::cout << "    attack range: " << this->attack_range << "m."<< std::endl;
+    std::cout << "     spell power: " << this->spell_power << std::endl;
+    std::cout << "  spell accuracy: " << this->spell_accuracy << std::endl;
+    std::cout << "cast speed bonus: " << 100 * this->cast_speed_bonus << "%" << std::endl;
+
+}
+
+
 // friends
 std::ostream & operator << (std::ostream & stream, const magic_arm & out) {
 

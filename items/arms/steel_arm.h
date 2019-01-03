@@ -24,9 +24,10 @@ public:
 
     int gear_up() override;
     int get_attack() override { return this->attack; }
-    int get_accuracy() { return this->accuracy; }
-    double get_attack_speed_bonus() { return this->attack_speed_bonus; }
+    int get_accuracy() override { return this->accuracy; }
+    double get_attack_speed_bonus() override { return this->attack_speed_bonus; }
 
+    void print() override;
     friend std::ostream &operator << (std::ostream &stream, const steel_arm & out);
 
 };

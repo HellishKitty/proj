@@ -20,6 +20,7 @@ public:
 
     int gear_up() override;
 
+    void print() override;
     friend std::ostream &operator << (std::ostream &stream, const devine_arm &out);
 
 };

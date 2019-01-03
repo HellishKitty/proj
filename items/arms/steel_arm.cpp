@@ -63,6 +63,21 @@ int steel_arm::gear_up() {
 }
 
 
+void steel_arm::print() {
+
+    std::cout << rank_map[this->rank] << " " << this->name;
+    if (this->gear != 0)
+        std::cout << " +" << this->gear;
+    std::cout << std::endl;
+
+    std::cout << "      attack range: " << this->attack_range << "m."<< std::endl;
+    std::cout << "     attack damage: " << this->attack << std::endl;
+    std::cout << "          accuracy: " << this->accuracy << std::endl;
+    std::cout << "attack speed bonus: " << 100 * this->attack_speed_bonus << "%" << std::endl;
+
+}
+
+
 std::ostream &operator << (std::ostream &stream, const steel_arm & out) {
 
     stream << rank_map[out.rank] << " " << out.name;
