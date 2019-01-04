@@ -168,6 +168,356 @@ int champion::count_mana() {
 }
 
 
+void champion::equip_arm(std::shared_ptr<arm> equip) {
+
+    if (this->_arm)
+        std::cout << "arm already equipped!" << std::endl;
+    else {
+
+        this->_arm = equip;
+
+        this->_stats.attack = DEFAULT_ATTACK + this->count_attack();
+        this->_stats.accuracy = DEFAULT_ACCURACY + equip->get_attack();
+        this->_stats.attack_speed = DEFAULT_ATTACK_SPEED + equip->get_attack_speed_bonus();
+
+        this->_stats.spell_power = DEFAULT_SPELL_POWER + this->count_spell_power();
+        this->_stats.spell_accuracy = DEFAULT_SPELL_ACCURACY + equip->get_spell_accuracy();
+        this->_stats.cast_speed = DEFAULT_ATTACK_SPEED + equip->get_cast_speed_bonus();
+
+    }
+
+}
+
+
+void champion::equip_belt(std::shared_ptr<belt> equip) {
+
+    if (this->_belt)
+        std::cout << "belt already equipped!" << std::endl;
+    else {
+
+        this->_belt = equip;
+
+        this->_stats.armor = DEFAULT_ARMOR + this->count_armor();
+        this->_stats.resist = DEFAULT_RESIST + this->count_resist();
+
+    }
+
+}
+
+
+void champion::equip_bracelet(std::shared_ptr<bracelet> equip) {
+
+    if (this->_bracelet)
+        std::cout << "bracelet already equipped!" << std::endl;
+    else {
+
+        this->_bracelet = equip;
+
+        this->_stats.attack = DEFAULT_ATTACK + this->count_attack();
+        this->_stats.mana = DEFAULT_MANA + this->count_mana();
+
+    }
+
+}
+
+
+void champion::equip_necklace(std::shared_ptr<necklace> equip) {
+
+    if (this->_necklace)
+        std::cout << "necklace already equipped!" << std::endl;
+    else {
+
+        this->_stats.spell_power = DEFAULT_SPELL_POWER + this->count_spell_power();
+        this->_stats.mana = DEFAULT_MANA + this->count_mana();
+
+    }
+
+}
+
+
+void champion::equip_outfit(std::shared_ptr<outfit> equip) {
+
+    if (this->_outfit)
+        std::cout << "outfit already equipped!" << std::endl;
+
+    else {
+
+        this->_outfit = equip;
+
+        this->_stats.armor = DEFAULT_ARMOR + this->count_armor();
+        this->_stats.resist = DEFAULT_RESIST + this->count_resist();
+        this->_stats.health = DEFAULT_HEALTH + this->count_health();
+        this->_stats.evasion = DEFAULT_EVASION + equip->get_evasion();
+        this->_stats.dispelling = DEFAULT_DISPELLING + equip->get_dispelling();
+
+    }
+
+}
+
+
+void champion::equip_plume(std::shared_ptr<plume> equip) {
+
+    if (this->_plume)
+        std::cout << "plume already equipped!" << std::endl;
+    else {
+
+        this->_plume = equip;
+
+        this->_stats.attack = DEFAULT_ATTACK + this->count_attack();
+        this->_stats.spell_power = DEFAULT_SPELL_POWER + this->count_spell_power();
+        this->_stats.health = DEFAULT_HEALTH + this->count_health();
+
+    }
+
+}
+
+
+std::shared_ptr<arm> champion::unequip_arm() {
+
+    std::shared_ptr<arm> ret;
+
+    if (this->_arm) {
+
+        ret = this->_arm;
+        this->_arm = nullptr;
+
+        this->_stats.attack_range = DEFAULT_ATTACK_RANGE;
+        this->_stats.attack_speed = DEFAULT_ATTACK_SPEED;
+        this->_stats.cast_speed = DEFAULT_ATTACK_SPEED;
+        this->_stats.attack = DEFAULT_ATTACK + this->count_attack();
+        this->_stats.spell_power = DEFAULT_SPELL_POWER + this->count_spell_power();
+        this->_stats.accuracy = DEFAULT_ACCURACY;
+        this->_stats.spell_accuracy = DEFAULT_SPELL_ACCURACY;
+
+
+    } else {
+
+        std::cout << "no arm equipped!" << std::endl;
+        ret = nullptr;
+
+    }
+    return ret;
+}
+
+
+std::shared_ptr<belt> champion::unequip_belt() {
+
+    std::shared_ptr<belt> ret;
+
+    if (this->_belt) {
+
+        ret = this->_belt;
+        this->_belt = nullptr;
+
+        this->_stats.armor = DEFAULT_ARMOR + this->count_armor();
+        this->_stats.resist = DEFAULT_RESIST + this->count_resist();
+
+    } else {
+
+        std::cout << "no belt equipped!" << std::endl;
+        ret = nullptr;
+
+    }
+
+    return ret;
+}
+
+
+std::shared_ptr<bracelet> champion::unequip_bracelet() {
+
+    std::shared_ptr<bracelet> ret;
+
+    if (this->_bracelet) {
+
+        ret = this->_bracelet;
+        this->_belt = nullptr;
+
+        this->_stats.attack = DEFAULT_ATTACK + this->count_attack();
+        this->_stats.mana = DEFAULT_MANA + this->count_mana();
+
+    } else {
+
+        std::cout << "no bracelet equipped!" << std::endl;
+        ret = nullptr;
+
+    }
+
+    return ret;
+}
+
+
+std::shared_ptr<necklace> champion::unequip_necklace() {
+
+    std::shared_ptr<necklace> ret;
+
+    if (this->_necklace) {
+
+        ret = this->_necklace;
+        this->_necklace = nullptr;
+
+        this->_stats.spell_power = DEFAULT_SPELL_POWER + this->count_spell_power();
+        this->_stats.mana = DEFAULT_MANA + this->count_mana();
+
+    } else {
+
+        std::cout << "no necklace equipped!" << std::endl;
+        ret = nullptr;
+
+    }
+
+    return ret;
+}
+
+
+std::shared_ptr<outfit> champion::unequip_outfit() {
+
+    std::shared_ptr<outfit> ret;
+
+    if (this->_outfit) {
+
+        ret = this->_outfit;
+        this->_necklace = nullptr;
+
+        this->_stats.armor = DEFAULT_ARMOR + this->count_armor();
+        this->_stats.resist = DEFAULT_RESIST + this->count_resist();
+        this->_stats.health = DEFAULT_HEALTH + this->count_health();
+        this->_stats.evasion = DEFAULT_EVASION;
+        this->_stats.dispelling = DEFAULT_DISPELLING;
+
+    } else {
+
+        std::cout << "no outfit equipped!" << std::endl;
+        ret = nullptr;
+
+    }
+
+    return ret;
+}
+
+
+std::shared_ptr<plume> champion::unquip_plume() {
+
+    std::shared_ptr<plume> ret;
+
+    if (this->_outfit) {
+
+        ret = this->_plume;
+        this->_outfit = nullptr;
+
+        this->_stats.attack = DEFAULT_ATTACK + this->count_attack();
+        this->_stats.spell_power = DEFAULT_SPELL_POWER + this->count_spell_power();
+        this->_stats.health = DEFAULT_HEALTH + this->count_health();
+
+    } else {
+
+        std::cout << "no plume equipped!" << std::endl;
+        ret = nullptr;
+
+    }
+
+    return ret;
+}
+
+
+void champion::gear_up_arm() {
+
+    if (this->_arm) {
+
+        this->_arm->gear_up();
+
+        this->_stats.attack = DEFAULT_ATTACK + this->count_attack();
+        this->_stats.accuracy = DEFAULT_ACCURACY + this->_arm->get_accuracy();
+        this->_stats.attack_speed = DEFAULT_ATTACK_SPEED + this->_arm->get_attack_speed_bonus();
+
+        this->_stats.spell_power = DEFAULT_SPELL_POWER + this->count_spell_power();
+        this->_stats.spell_accuracy = DEFAULT_ACCURACY + this->_arm->get_spell_accuracy();
+        this->_stats.cast_speed = DEFAULT_ATTACK_SPEED + this->_arm->get_cast_speed_bonus();
+
+    } else
+        std::cout << "no arm equipped!" << std::endl;
+
+}
+
+
+void champion::gear_up_belt() {
+
+    if (this->_belt) {
+
+        this->_belt->gear_up();
+
+        this->_stats.armor = DEFAULT_ARMOR + this->count_armor();
+        this->_stats.resist = DEFAULT_RESIST + this->count_resist();
+
+    } else
+        std::cout << "no belt equipped" << std::endl;
+
+}
+
+
+void champion::gear_up_bracelet() {
+
+    if (this->_bracelet) {
+
+        this->_bracelet->gear_up();
+
+        this->_stats.attack = DEFAULT_ATTACK + this->count_attack();
+        this->_stats.mana = DEFAULT_MANA + this->count_mana();
+
+    } else
+        std::cout << "no bracelet equipped!" << std::endl;
+
+}
+
+
+void champion::gear_up_necklace() {
+
+    if (this->_necklace) {
+
+        this->_necklace->gear_up();
+
+        this->_stats.spell_power = DEFAULT_SPELL_POWER + this->count_spell_power();
+        this->_stats.mana = DEFAULT_MANA + this->count_mana();
+
+    } else
+        std::cout << "no necklace equipped!" << std::endl;
+
+}
+
+
+void champion::gear_up_outfit() {
+
+    if (this->_outfit) {
+
+        this->_outfit->gear_up();
+
+        this->_stats.armor = DEFAULT_ARMOR + this->count_armor();
+        this->_stats.resist = DEFAULT_RESIST + this->count_resist();
+        this->_stats.health = DEFAULT_HEALTH + this->count_health();
+        this->_stats.evasion = DEFAULT_EVASION + this->_outfit->get_evasion();
+        this->_stats.dispelling = DEFAULT_DISPELLING + this->_outfit->get_dispelling();
+
+    } else
+        std::cout << "no outfit equipped!" << std::endl;
+
+}
+
+
+void champion::gear_up_plume() {
+
+    if (this->_plume) {
+
+        this->_plume->gear_up();
+
+        this->_stats.attack = DEFAULT_ATTACK + this->count_attack();
+        this->_stats.spell_power = DEFAULT_SPELL_POWER + this->count_spell_power();
+        this->_stats.health = DEFAULT_HEALTH + this->count_health();
+
+    } else
+        std::cout << "no plume equipped!" << std::endl;
+
+}
+
+
 // friends
 std::ostream &operator << (std::ostream &stream, const champion &out) {
 
@@ -177,42 +527,42 @@ std::ostream &operator << (std::ostream &stream, const champion &out) {
 
     stream << "//----------------------items:" << std::endl;
     if (out._arm != nullptr)
-        stream << out._arm;
+        out._arm->print();
     else
         std::cout << "no arm equipped!" << std::endl;
 
     stream << "------------------------------" << std::endl;
 
     if (out._outfit)
-        stream << out._outfit;
+        stream << *out._outfit;
     else
         stream << "no outfit equipped!" << std::endl;
 
     stream << "------------------------------" << std::endl;
 
     if (out._belt)
-        stream << out._belt;
+        stream << *out._belt;
     else
         stream << "no belt equipped!" << std::endl;
 
     stream << "------------------------------" << std::endl;
 
     if (out._bracelet)
-        stream << out._bracelet;
+        stream << *out._bracelet;
     else
         stream << "no bracelet equipped!" << std::endl;
 
     stream << "------------------------------" << std::endl;
 
     if (out._necklace)
-        stream << out._necklace;
+        stream << *out._necklace;
     else
         stream << "no necklace equipped!" << std::endl;
 
     stream << "------------------------------" << std::endl;
 
     if (out._plume)
-        stream << out._plume;
+        stream << *out._plume;
     else
         stream << "no plume equipped!" << std::endl;
 
