@@ -85,8 +85,9 @@ void interface::print_champs() {
     std::cout << "your champions: " << std::endl;
 
     for (int i = 0; i != this->active_champs.size(); i++)
-        std::cout << this->active_champs[i]->get_name() << std::endl;
+        std::cout << i + 1 << ". "<<  this->active_champs[i]->get_name() << std::endl;
 
+    std::cout << "-------------------------" << std::endl;
 }
 
 
@@ -198,7 +199,6 @@ std::shared_ptr<item> interface::search(const int &n) {
 
     return result;
 }
-
 
 
 // костыль
@@ -398,13 +398,14 @@ void interface::select_champion() {
         if (this->active_champs[i]->get_name() == name) {
 
             this->current_champion = this->active_champs[i];
+            std::cout << "new champion selected" << std::endl;
             break;
 
         }
 
     }
 
-    if (i == this->active_champs.size() - 1)
+    if (i == this->active_champs.size())
         std::cout << "there is no such a champion" << std::endl;
 }
 
