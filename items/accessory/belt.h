@@ -25,6 +25,9 @@ public:
     int get_armor() { return this->armor; }
     int get_resist() { return this->resist; }
 
+    std::shared_ptr<belt> convert_belt();
+
+    void print() override;
     friend std::ostream &operator << (std::ostream &stream, const belt &out);
 
 };

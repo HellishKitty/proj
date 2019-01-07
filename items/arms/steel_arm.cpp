@@ -13,7 +13,7 @@ steel_arm::steel_arm() {
 
     this->rank = 0;
     this->gear = 0;
-    this->type = "steel arms";
+    this->type = "steel arm";
     this->name = "null";
 
 }
@@ -31,7 +31,7 @@ steel_arm::steel_arm(const std::string &name, const int &rank, const int &gear, 
     this->rank = rank;
     this->gear = gear;
     this->name = name;
-    this->type = "steel arms";
+    this->type = "steel arm";
 
 }
 
@@ -39,7 +39,7 @@ steel_arm::steel_arm(const std::string &name, const int &rank, const int &gear, 
 steel_arm::steel_arm(const steel_arm &orig)
 : steel_arm(orig.name, orig.rank, orig.gear, orig.attack_range, orig.attack, orig.accuracy, orig.attack_speed_bonus) {
 
-    this->type = "steel arms";
+    this->type = "steel arm";
 
 }
 
@@ -59,6 +59,14 @@ int steel_arm::gear_up() {
     }
 
     return this->gear;
+
+}
+
+
+std::shared_ptr<arm> steel_arm::convert_arm() {
+
+    return std::make_shared<steel_arm>(this->name, this->rank, this->gear, this->attack_range,
+            this->attack, this->accuracy, this->attack_speed_bonus);
 
 }
 

@@ -27,6 +27,9 @@ public:
     int get_health() { return this->health; }
     int get_spell_power() { return this->spell_power; }
 
+    std::shared_ptr<plume> convert_plume() override;
+
+    void print() override;
     friend std::ostream &operator << (std::ostream &stream, const plume &out);
 
 };

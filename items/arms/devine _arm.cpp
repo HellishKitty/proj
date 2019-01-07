@@ -16,7 +16,7 @@ devine_arm::devine_arm() {
     this->rank = 0;
     this->gear = 0;
     this->name = "null";
-    this->type = "devine arms";
+    this->type = "divine arm";
 
 }
 
@@ -37,7 +37,7 @@ devine_arm::devine_arm(const std::string &name, const int &rank, const int &gear
     this->rank = rank;
     this->gear = gear;
     this->name = name;
-    this->type = "devine arms";
+    this->type = "divine arm";
 
 }
 
@@ -72,9 +72,18 @@ int devine_arm::gear_up() {
 }
 
 
+std::shared_ptr<arm> devine_arm::convert_arm() {
+
+    return std::make_shared<devine_arm>(this->name, this->rank, this->gear, this->attack_range,
+            this->attack, this->accuracy, this->attack_speed_bonus,
+            this->spell_power, this->spell_accuracy, this->cast_speed_bonus);
+
+}
+
+
 void devine_arm::print() {
 
-    std::cout << rank_map[this->rank] << this->name;
+    std::cout << rank_map[this->rank] << " " << this->name;
     if (this->gear != 0)
         std::cout << " +" << this->gear;
     std::cout << std::endl;

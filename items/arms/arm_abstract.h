@@ -25,7 +25,7 @@ public:
     virtual int get_spell_accuracy() { return 0; }
     virtual double get_cast_speed_bonus() { return 0; }
 
-    virtual void print() { }
+    //void print() { }
     friend std::ostream &operator << (std::ostream &stream, const arm &out) {
         return stream;
     }

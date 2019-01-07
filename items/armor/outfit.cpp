@@ -60,6 +60,30 @@ int outfit::gear_up() {
 }
 
 
+std::shared_ptr<outfit> outfit::convert_outfit() {
+
+    return std::make_shared<outfit>(this->name, this->rank, this->gear,
+            this->armor, this->resist, this->health, this->evasion, this->dispelling);
+
+}
+
+
+void outfit::print() {
+
+    std::cout << rank_map[this->rank] << " " << this->name;
+    if (this->gear != 0)
+        std::cout << " +" << this->gear;
+    std::cout << std::endl;
+
+    std::cout << "     armor: " << this->armor << std::endl;
+    std::cout << "    resist: " << this->resist << std::endl;
+    std::cout << "    health: " << this->health << std::endl;
+    std::cout << "   evasion: " << this->evasion << std::endl;
+    std::cout << "dispelling: " << this->dispelling << std::endl;
+
+}
+
+
 // friends
 std::ostream &operator << (std::ostream &stream, const outfit &out) {
 

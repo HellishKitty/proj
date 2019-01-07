@@ -59,6 +59,28 @@ int plume::gear_up() {
 }
 
 
+std::shared_ptr<plume> plume::convert_plume() {
+
+    return std::make_shared<plume>(this->name, this->rank, this->gear,
+            this->health, this->attack, this->spell_power);
+
+}
+
+
+void plume::print() {
+
+    std::cout << rank_map[this->rank] << " " << this->name;
+    if (this->gear != 0)
+        std::cout << " +" << this->gear;
+    std::cout << std::endl;
+
+    std::cout << "     attack: " << this->attack << std::endl;
+    std::cout << "spell power: " << this->spell_power << std::endl;
+    std::cout << "     health: " << this->health << std::endl;
+
+}
+
+
 // friends
 std::ostream &operator << (std::ostream &stream, const plume &out) {
 

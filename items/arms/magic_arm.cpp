@@ -13,7 +13,7 @@ magic_arm::magic_arm() {
 
     this->rank = 0;
     this->gear = 0;
-    this->type = "magic arms";
+    this->type = "magic arm";
     this->name = "null";
 
 }
@@ -31,7 +31,7 @@ magic_arm::magic_arm(const std::string &name, const int &rank, const int &gear, 
     this->rank = rank;
     this->gear = gear;
     this->name = name;
-    this->type = "magic arms";
+    this->type = "magic arm";
 
 }
 
@@ -39,7 +39,7 @@ magic_arm::magic_arm(const std::string &name, const int &rank, const int &gear, 
 magic_arm::magic_arm(const magic_arm &orig)
 : magic_arm(orig.name, orig.rank, orig.gear,  orig.attack_range, orig.spell_power, orig.spell_accuracy, orig.cast_speed_bonus){
 
-    this->type = "magic arms";
+    this->type = "magic arm";
 
 }
 
@@ -60,6 +60,14 @@ int magic_arm::gear_up() {
     }
 
     return this->gear;
+}
+
+
+std::shared_ptr<arm> magic_arm::convert_arm() {
+
+    return std::make_shared<magic_arm>(this->name, this->rank, this->gear, this->attack_range,
+    this->spell_power, this->spell_accuracy, this->cast_speed_bonus);
+
 }
 
 

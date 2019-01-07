@@ -16,3 +16,17 @@ std::map <int, std::string>rank_map = {
         { 3, "legendary"},
 
 };
+
+
+std::map <std::string, int> item_type_map = {
+
+        { "steel arm", 1 },
+        { "magic arm", 1 },
+        { "divine arm", 1 },
+        { "outfit", 2 },
+        { "belt", 3 },
+        { "bracelet", 4 },
+        { "necklace", 5 },
+        { "plume", 6 }
+
+};

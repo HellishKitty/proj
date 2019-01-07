@@ -26,6 +26,7 @@ public:
     int get_spell_power() override { return this->spell_power; }
     int get_spell_accuracy() override { return this->spell_accuracy; }
     double get_cast_speed_bonus() override { return this->cast_speed_bonus; }
+    std::shared_ptr<arm> convert_arm() override;
 
     void print() override;
     friend std::ostream & operator << (std::ostream & stream, const magic_arm & out);

@@ -1,0 +1,31 @@
+#ifndef _STUFF_H
+#define _STUFF_H
+
+#include <map>
+#include <string>
+#include <iostream>
+
+
+namespace slv {
+
+    template <typename T>
+    void input(const std::string &message, T &in) {
+
+        std::cout << message;
+        std::cin >> in;
+        while (!std::cin.good()) {
+
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+            std::cout << "input error! try again\n" << message;
+            std::cin >> in;
+
+        }
+
+    }
+
+}
+
+
+#endif // _STUFF_H

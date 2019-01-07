@@ -28,12 +28,12 @@ champion::champion(const std::string &name, const stats &_stats, std::shared_ptr
     this->name = name;
     this->_stats = _stats;
 
-    this->_arm = std::make_shared<arm>(*_arm);
-    this->_outfit = std::make_shared<outfit>(*_outfit);
-    this->_belt = std::make_shared<belt>(*_belt);
-    this->_bracelet = std::make_shared<bracelet>(*_bracelet);
-    this->_necklace = std::make_shared<necklace>(*_necklace);
-    this->_plume = std::make_shared<plume>(*_plume);
+    this->_arm = std::move(_arm);
+    this->_outfit = std::move(_outfit);
+    this->_belt = std::move(_belt);
+    this->_bracelet = std::move(_bracelet);
+    this->_necklace = std::move(_necklace);
+    this->_plume = std::move(_plume);
 
 }
 
@@ -54,8 +54,19 @@ champion::champion(const std::string &name, const stats & _stats, arm *_arm, out
 }
 
 
-champion::champion(const champion &orig)
-: champion(orig.name, orig._stats, orig._arm, orig._outfit, orig._belt, orig._bracelet, orig._necklace, orig._plume) { }
+champion::champion(const champion &orig) {
+
+    this->name = orig.name;
+    this->_stats = orig._stats;
+
+    this->_arm = std::make_shared<arm>(*orig._arm);
+    this->_outfit = std::make_shared<outfit>(*orig._outfit);
+    this->_belt = std::make_shared<belt>(*orig._belt);
+    this->_bracelet = std::make_shared<bracelet>(*orig._bracelet);
+    this->_necklace = std::make_shared<necklace>(*orig._necklace);
+    this->_plume = std::make_shared<plume>(*orig._plume);
+
+}
 
 
 champion::~champion() {
@@ -417,7 +428,6 @@ std::shared_ptr<plume> champion::unquip_plume() {
 
     return ret;
 }
-
 
 void champion::gear_up_arm() {
 

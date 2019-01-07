@@ -57,6 +57,26 @@ int bracelet::gear_up() {
 }
 
 
+std::shared_ptr<bracelet> bracelet::convert_bracelet() {
+
+    return std::make_shared<bracelet>(this->name, this->rank, this->gear,
+            this->attack_bonus, this->mana);
+
+}
+
+
+void bracelet::print() {
+
+    std::cout << rank_map[this->rank] << " " << this->name;
+    if (this->gear != 0)
+        std::cout << " +" << this->gear;
+    std::cout << std::endl;
+
+    std::cout << "attack bonus: " << this->attack_bonus << std::endl;
+    std::cout << "        mana: " << this->mana << std::endl;
+
+}
+
 
 // friends
 std::ostream &operator << (std::ostream &stream, const bracelet &out) {

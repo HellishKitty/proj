@@ -25,6 +25,9 @@ public:
     int get_mana() { return this->mana; }
     double get_attack_bonus() { return this->attack_bonus; }
 
+    std::shared_ptr<bracelet> convert_bracelet() override;
+
+    void print() override;
     friend std::ostream &operator << (std::ostream &stream, const bracelet &out);
 
 };

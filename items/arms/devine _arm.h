@@ -19,6 +19,7 @@ public:
     ~devine_arm() override = default;
 
     int gear_up() override;
+    std::shared_ptr<arm> convert_arm() override;
 
     void print() override;
     friend std::ostream &operator << (std::ostream &stream, const devine_arm &out);

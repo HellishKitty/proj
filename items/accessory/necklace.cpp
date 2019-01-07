@@ -57,6 +57,27 @@ int necklace::gear_up() {
 }
 
 
+std::shared_ptr<necklace> necklace::convert_necklace() {
+
+    return std::make_shared<necklace>(this->name, this->rank, this->gear,
+            this->spell_power_bonus, this->mana);
+
+}
+
+
+void necklace::print() {
+
+    std::cout << rank_map[this->rank] << " " << this->name;
+    if (this->gear != 0)
+        std::cout << " +" << this->gear;
+    std::cout << std::endl;
+
+    std::cout << "spell power bonus: " << 100 * this->spell_power_bonus << "%" << std::endl;
+    std::cout << "             mana: " << this->mana << std::endl;
+
+}
+
+
 // friends
 std::ostream &operator << (std::ostream &stream, const necklace &out) {
 

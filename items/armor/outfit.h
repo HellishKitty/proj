@@ -31,6 +31,9 @@ public:
     int get_evasion() { return this->evasion; }
     int get_dispelling() { return this->dispelling; }
 
+    std::shared_ptr<outfit> convert_outfit();
+
+    void print() override;
     friend std::ostream &operator << (std::ostream &stream, const outfit &out);
 
 };

@@ -43,6 +43,7 @@ protected:
     std::shared_ptr<plume> _plume;
 
 public:
+
     stats _stats;
 
     champion(); // default constructor
@@ -55,6 +56,7 @@ public:
     ~champion();
 
     // methods
+    std::string get_name() { return this->name; }
     void set_nullptr();
 
     int count_mana();
@@ -77,7 +79,14 @@ public:
     std::shared_ptr<necklace> unequip_necklace();
     std::shared_ptr<outfit> unequip_outfit();
     std::shared_ptr<plume> unquip_plume();
-
+/*
+    std::shared_ptr<arm> switch_arm(std::shared_ptr<arm> equip);
+    void switch_belt(std::shared_ptr<belt>);
+    void switch_bracelet(std::shared_ptr<bracelet>);
+    void switch_necklace(std::shared_ptr<necklace>);
+    void switch_outfit(std::shared_ptr<outfit>);
+    void switch_plume(std::shared_ptr<plume>);
+*/
     void gear_up_arm();
     void gear_up_belt();
     void gear_up_bracelet();

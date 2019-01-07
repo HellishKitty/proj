@@ -54,6 +54,27 @@ int belt::gear_up() {
 }
 
 
+std::shared_ptr<belt> belt::convert_belt() {
+
+    return std::make_shared<belt>(this->name, this->rank, this->gear,
+            this->armor, this->resist);
+
+}
+
+
+void belt::print() {
+
+    std::cout << rank_map[this->rank] << " " << this->name;
+    if (this->gear != 0)
+        std::cout << " +" << this->gear;
+    std::cout << std::endl;
+
+    std::cout << " armor: " << this->armor << std::endl;
+    std::cout << "resist: " << this->resist << std::endl;
+
+}
+
+
 // friends
 std::ostream &operator << (std::ostream &stream, const belt &out) {
 
