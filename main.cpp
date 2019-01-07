@@ -4,6 +4,7 @@
 #include "champion/champion.h"
 #include "interface.h"
 
+/* lab 5/6 build 1.0 */
 
 int main() {
 
